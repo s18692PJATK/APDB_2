@@ -14,6 +14,10 @@ namespace tut_apdb2.models
             _serializer.Serialize(writer,students);
         }
 
-       
+        public void serializeStudies(IEnumerable<ActiveStudies> studies, FileStream writer)
+        {
+            _serializer = new XmlSerializer(typeof(HashSet<ActiveStudies>),new XmlRootAttribute("university"));
+            _serializer.Serialize(writer,studies);
+        }
     }
 }

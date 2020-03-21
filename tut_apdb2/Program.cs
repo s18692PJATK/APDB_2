@@ -23,11 +23,11 @@ namespace tut_apdb2
         private static void Main(string[] args)
         {
             var students = ReadData("/home/piotr/RiderProjects/tut_apdb2/tut_apdb2/Data/dane.csv");
-            //for some reason only absolute path works, you might want to change that
+            //for some reason only absolute path works, you need to change that to your path
             var activeStudiesMap = GetCountOfStudies(students);
             var activeStudies =  convertToSet(activeStudiesMap);
-            SerializeData(students,".xml");
-            SerializeData(activeStudies,".xml");
+            SerializeData(students,activeStudies,".xml");
+            
             
         }
         
@@ -54,6 +54,14 @@ namespace tut_apdb2
             return students;
 
         }
+        private static void SerializeData(IEnumerable<Student> students,IEnumerable<ActiveStudies> studies,string format)
+        {
+            var writer = new FileStream(@"result"+format,FileMode.Create);
+            var serializer = SelectSerializer(format);
+            serializer.serializeStudents(students,writer);
+            serializer.serializeStudies(studies,writer);
+            
+        }
 
         private static Dictionary<string,int> GetCountOfStudies(IEnumerable<Student> students)
         {
@@ -73,13 +81,7 @@ namespace tut_apdb2
         }
 
        
-        private static void SerializeData(IEnumerable<Student> students,IEnumerable<ActiveStudies>,string format)
-        {
-            var writer = new FileStream(@"result"+format,FileMode.Create);
-            var serializer = SelectSerializer(format);
-            serializer.serializeStudents(students,writer);
-            
-        }
+      
 
         private static IEnumerable<ActiveStudies> convertToSet(Dictionary<string, int> dictionary)
         {
