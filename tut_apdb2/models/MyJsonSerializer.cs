@@ -7,14 +7,14 @@ namespace tut_apdb2.models
 {
     public class MyJsonSerializer : ISerializer
     {
-        public void serializeStudents(IEnumerable<object> students, FileStream writer)
+        public void serializeStudents(IEnumerable<Student> students, FileStream writer)
         {
             var jsonString = JsonSerializer.Serialize(students);
             var bytes = Encoding.ASCII.GetBytes(jsonString);
             writer.Write(bytes);
         }
 
-        public void serializeStudies(IEnumerable<object> studies, FileStream writer)
+        public void serializeStudies(IEnumerable<ActiveStudies> studies, FileStream writer)
         {
             var jsonString = JsonSerializer.Serialize(studies);
             var bytes = Encoding.ASCII.GetBytes(jsonString);

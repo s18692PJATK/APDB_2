@@ -13,11 +13,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/home/piotr/RiderProjects/tut_apdb2/tut_apdb2/tut_apdb2.csproj",
+      "projectUniqueName": "/home/piotr/RiderProjects/a/tut_apdb2/tut_apdb2.csproj",
       "projectName": "tut_apdb2",
-      "projectPath": "/home/piotr/RiderProjects/tut_apdb2/tut_apdb2/tut_apdb2.csproj",
+      "projectPath": "/home/piotr/RiderProjects/a/tut_apdb2/tut_apdb2.csproj",
       "packagesPath": "/home/piotr/.nuget/packages/",
-      "outputPath": "/home/piotr/RiderProjects/tut_apdb2/tut_apdb2/obj/",
+      "outputPath": "/home/piotr/RiderProjects/a/tut_apdb2/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/home/piotr/.config/NuGet/NuGet.Config"
