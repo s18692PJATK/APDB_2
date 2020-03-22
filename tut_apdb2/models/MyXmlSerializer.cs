@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Xml.Serialization;
@@ -8,15 +9,14 @@ namespace tut_apdb2.models
 
     {
         private XmlSerializer _serializer;
-        public void serializeStudents(IEnumerable<Student> students,FileStream writer)
+        public void serializeStudents(IEnumerable<Object> students,FileStream writer)
         {
-            _serializer = new XmlSerializer(typeof(HashSet<Student>),new XmlRootAttribute("university"));
+            _serializer = new XmlSerializer(typeof(HashSet<Object>),new XmlRootAttribute("university"));
             _serializer.Serialize(writer,students);
         }
 
-        public void serializeStudies(IEnumerable<ActiveStudies> studies, FileStream writer)
+        public void serializeStudies(IEnumerable<object> studies, FileStream writer)
         {
-            _serializer = new XmlSerializer(typeof(HashSet<ActiveStudies>),new XmlRootAttribute("university"));
             _serializer.Serialize(writer,studies);
         }
     }
